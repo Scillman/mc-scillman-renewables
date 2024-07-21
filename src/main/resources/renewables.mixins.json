@@ -1,0 +1,11 @@
+{
+    "required": true,
+    "package": "com.github.scillman.minecraft.renewables.mixin",
+    "compatibilityLevel": "JAVA_21",
+    "mixins": [
+        "PointedDripstoneBlockMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
