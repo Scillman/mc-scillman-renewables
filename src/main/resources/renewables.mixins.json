@@ -1,7 +1,7 @@
 {
     "required": true,
     "package": "com.github.scillman.minecraft.renewables.mixin",
-    "compatibilityLevel": "JAVA_21",
+    "compatibilityLevel": "JAVA_17",
     "mixins": [
         "PointedDripstoneBlockMixin"
     ],
