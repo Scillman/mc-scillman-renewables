@@ -8,7 +8,6 @@ import net.minecraft.block.LandingBlock;
 import net.minecraft.block.PointedDripstoneBlock;
 import net.minecraft.block.Waterloggable;
 
-import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -17,7 +16,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Share;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 
-@Debug(export = true)
 @Mixin(PointedDripstoneBlock.class)
 public abstract class PointedDripstoneBlockMixin extends Block implements LandingBlock, Waterloggable
 {
