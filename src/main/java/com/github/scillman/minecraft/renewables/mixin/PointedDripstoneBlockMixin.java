@@ -79,7 +79,7 @@ public abstract class PointedDripstoneBlockMixin extends Block implements Fallin
      * @return True if the fluid is Fluids.WATER; otherwise, false.
      * @see {@link net.minecraft.block.PointedDripstoneBlock#getFluid getFluid}
      */
-    @WrapOperation(method = "(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/PointedDripstoneBlock$DrippingFluid;", at = @At(
+    @WrapOperation(method = "method_33279(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/PointedDripstoneBlock$DrippingFluid;", at = @At(
         value = "INVOKE",
         target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"
     ))
