@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:brain_coral_block"
+        "recipe": "renewables:brain_coral_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brain_coral_block"
+      "renewables:brain_coral_block"
     ]
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:horn_coral_block"
+        "recipe": "renewables:horn_coral_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:horn_coral_block"
+      "renewables:horn_coral_block"
     ]
   }
 }

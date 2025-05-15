@@ -1,20 +1,35 @@
 package com.github.scillman.minecraft.renewables.datagen;
 
-import com.google.common.collect.ImmutableList;
-
+import net.minecraft.data.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.BlastingRecipe;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.SmeltingRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 
 public class ModRecipeGenerator extends RecipeGenerator
 {
+    private static final String MOD_ID = "renewables";
+
     public ModRecipeGenerator(RegistryWrapper.WrapperLookup registryLookup, RecipeExporter exporter)
     {
         super(registryLookup, exporter);
+    }
+
+    private String getRecipePath(ItemConvertible item)
+    {
+        return MOD_ID + ":" + getItemPath(item);
+    }
+
+    private String getRecipePath(ItemConvertible item, String suffix)
+    {
+        return MOD_ID + ":" + getItemPath(item) + "_" + suffix;
     }
 
     @Override
@@ -32,7 +47,7 @@ public class ModRecipeGenerator extends RecipeGenerator
 
         // createOreRecipe4("raw_iron_ore", Items.RAW_IRON, Items.IRON_ORE, Items.DEEPSLATE_IRON_ORE);
         // createOreRecipe4("raw_gold_ore", Items.RAW_GOLD, Items.GOLD_ORE, Items.DEEPSLATE_GOLD_ORE);
-        
+
         createOreRecipe22("copper_ore", Items.COPPER_INGOT, Items.COPPER_BLOCK, Items.COPPER_ORE, Items.DEEPSLATE_COPPER_ORE);
 
         createOreRecipe4("lapis_ore", Items.LAPIS_BLOCK, Items.LAPIS_ORE, Items.DEEPSLATE_LAPIS_ORE);
@@ -46,9 +61,13 @@ public class ModRecipeGenerator extends RecipeGenerator
         // offerSmelting( COPPER_ORES, RecipeCategory.MISC, Items.COPPER_INGOT, 0.7F, 200, "copper_ingot" );
         // offerSmelting( GOLD_ORES,   RecipeCategory.MISC, Items.GOLD_INGOT,   1.0F, 200, "gold_ingot"   );
 
-        offerSmelting(ImmutableList.of(Items.RAW_IRON_BLOCK),   RecipeCategory.MISC, Items.IRON_BLOCK,   (9 * 0.7f), (9 * 200), "iron_block");
-        offerSmelting(ImmutableList.of(Items.RAW_GOLD_BLOCK),   RecipeCategory.MISC, Items.GOLD_BLOCK,   (9 * 1.0f), (9 * 200), "gold_block");
-        offerSmelting(ImmutableList.of(Items.RAW_COPPER_BLOCK), RecipeCategory.MISC, Items.COPPER_BLOCK, (9 * 0.7f), (9 * 200), "copper_block");
+        // offerBlasting(IRON_ORES,   RecipeCategory.MISC, Items.IRON_INGOT,   0.7F, 100, "iron_ingot");
+        // offerBlasting(COPPER_ORES, RecipeCategory.MISC, Items.COPPER_INGOT, 0.7F, 100, "copper_ingot");
+        // offerBlasting(GOLD_ORES,   RecipeCategory.MISC, Items.GOLD_INGOT,   1.0F, 100, "gold_ingot");
+
+        createBlockSmeltingRecipe(Items.RAW_IRON_BLOCK,   RecipeCategory.MISC, Items.IRON_BLOCK,   (9 * 0.7f), (9 * 200), (9 * 100), "iron_block");
+        createBlockSmeltingRecipe(Items.RAW_GOLD_BLOCK,   RecipeCategory.MISC, Items.GOLD_BLOCK,   (9 * 1.0f), (9 * 200), (9 * 100), "gold_block");
+        createBlockSmeltingRecipe(Items.RAW_COPPER_BLOCK, RecipeCategory.MISC, Items.COPPER_BLOCK, (9 * 0.7f), (9 * 200), (9 * 100), "copper_block");
 
         createCompactCoralBlockRecipe("tube_coral_block", Items.TUBE_CORAL_FAN, Items.TUBE_CORAL, Items.TUBE_CORAL_BLOCK);
         createCompactCoralBlockRecipe("brain_coral_block", Items.BRAIN_CORAL_FAN, Items.BRAIN_CORAL, Items.BRAIN_CORAL_BLOCK);
@@ -67,7 +86,7 @@ public class ModRecipeGenerator extends RecipeGenerator
             .input('b', baseItem)
             .group(group)
             .criterion(hasItem(item), conditionsFromItem(item))
-            .offerTo(exporter, getItemPath(ore) + "_" + suffix);
+            .offerTo(exporter, getRecipePath(ore, suffix));
     }
 
     private void createOreRecipe4(String group, ItemConvertible item, ItemConvertible ore, ItemConvertible deepslateOre)
@@ -87,7 +106,7 @@ public class ModRecipeGenerator extends RecipeGenerator
             .input('b', baseItem)
             .group(group)
             .criterion(hasItem(item), conditionsFromItem(item))
-            .offerTo(exporter, getItemPath(ore) + "_" + suffix);    
+            .offerTo(exporter, getRecipePath(ore, suffix));
     }
 
     private void createOreRecipe8(String group, ItemConvertible item, ItemConvertible ore, ItemConvertible deepslateOre)
@@ -108,7 +127,7 @@ public class ModRecipeGenerator extends RecipeGenerator
             .input('b', baseItem)
             .group(group)
             .criterion(hasItem(item), conditionsFromItem(item))
-            .offerTo(exporter, getItemPath(ore) + "_" + suffix);
+            .offerTo(exporter, getRecipePath(ore, suffix));
     }
 
     private void createOreRecipe22(String group, ItemConvertible item, ItemConvertible compactItem, ItemConvertible ore, ItemConvertible deepslateOre)
@@ -129,7 +148,7 @@ public class ModRecipeGenerator extends RecipeGenerator
             .input('b', Items.NETHERRACK)
             .group("nether_gold_ore")
             .criterion(hasItem(Items.NETHER_GOLD_ORE), conditionsFromItem(Items.NETHER_GOLD_ORE))
-            .offerTo(exporter);   
+            .offerTo(exporter, getRecipePath(Items.NETHER_GOLD_ORE));
     }
 
     private void createNetherQuartzRecipe()
@@ -142,7 +161,7 @@ public class ModRecipeGenerator extends RecipeGenerator
             .input('b', Items.NETHERRACK)
             .group("nether_quartz_ore")
             .criterion(hasItem(Items.QUARTZ), conditionsFromItem(Items.QUARTZ))
-            .offerTo(exporter);
+            .offerTo(exporter, getRecipePath(Items.NETHER_QUARTZ_ORE));
     }
 
     private void createGildedBlackstoneRecipe()
@@ -155,7 +174,22 @@ public class ModRecipeGenerator extends RecipeGenerator
             .input('b', Items.BLACKSTONE)
             .group("gilded_blackstone")
             .criterion(hasItem(Items.GOLD_NUGGET), conditionsFromItem(Items.GOLD_NUGGET))
-            .offerTo(exporter);
+            .offerTo(exporter, getRecipePath(Items.GILDED_BLACKSTONE));
+    }
+
+    private void createBlockSmeltingRecipe(ItemConvertible input, RecipeCategory category, ItemConvertible output, float experience, int smeltingTime, int blastingTime, String group)
+    {
+        CookingRecipeJsonBuilder.create(Ingredient.ofItem(input),
+            category, output, experience, smeltingTime, RecipeSerializer.SMELTING, SmeltingRecipe::new)
+            .group(group)
+            .criterion(hasItem(input), this.conditionsFromItem(input))
+            .offerTo(this.exporter, getRecipePath(output, ("from_smelting_" + getItemPath(input))));
+
+        CookingRecipeJsonBuilder.create(Ingredient.ofItem(input),
+            category, output, experience, blastingTime, RecipeSerializer.BLASTING, BlastingRecipe::new)
+            .group(group)
+            .criterion(hasItem(input), this.conditionsFromItem(input))
+            .offerTo(this.exporter, getRecipePath(output, ("from_blasting_" + getItemPath(input))));
     }
 
     private void createCompactCoralBlockRecipe(String group, ItemConvertible fanItem, ItemConvertible item, ItemConvertible compactItem)
@@ -167,7 +201,7 @@ public class ModRecipeGenerator extends RecipeGenerator
             .input('i', fanItem)
             .group(group)
             .criterion(hasItem(fanItem), conditionsFromItem(fanItem))
-            .offerTo(exporter, getItemPath(compactItem) + "_from_fan");
+            .offerTo(exporter, getRecipePath(compactItem, "from_fan"));
 
         createShaped(RecipeCategory.MISC, compactItem)
             .pattern("iii")
@@ -176,7 +210,7 @@ public class ModRecipeGenerator extends RecipeGenerator
             .input('i', item)
             .group(group)
             .criterion(hasItem(item), conditionsFromItem(item))
-            .offerTo(exporter);
+            .offerTo(exporter, getRecipePath(compactItem));
     }
 }
 
@@ -188,15 +222,15 @@ public class ModRecipeGenerator extends RecipeGenerator
  *    4     0+4     Coal
  *    4     0+4     Diamond
  *    4     0+4     Emerald
- * 
+ *
  *    4     0+4     Iron
  *   20     2+2     Copper
  *    4     0+4     Gold
- * 
+ *
  *   24     2+6     Nether Gold (Nuggets)
  *    4     0+4     Nether Quartz
  *    5     0+5     Gilded Blackstone (Nuggets)
- * 
+ *
  *   36     4+0     Lapis Lazuli
  *    8     0+8     Redstone
  *

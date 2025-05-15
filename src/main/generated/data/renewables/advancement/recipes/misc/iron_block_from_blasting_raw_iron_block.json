@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_redstone": {
+    "has_raw_iron_block": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:redstone"
+            "items": "minecraft:raw_iron_block"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "renewables:redstone_ore_from_stone"
+        "recipe": "renewables:iron_block_from_blasting_raw_iron_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_redstone"
+      "has_raw_iron_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "renewables:redstone_ore_from_stone"
+      "renewables:iron_block_from_blasting_raw_iron_block"
     ]
   }
 }

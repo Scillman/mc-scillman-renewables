@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:diamond_ore_from_stone"
+        "recipe": "renewables:diamond_ore_from_stone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:diamond_ore_from_stone"
+      "renewables:diamond_ore_from_stone"
     ]
   }
 }

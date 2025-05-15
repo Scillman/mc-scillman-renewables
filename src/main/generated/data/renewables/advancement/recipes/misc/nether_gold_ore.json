@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:nether_gold_ore"
+        "recipe": "renewables:nether_gold_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:nether_gold_ore"
+      "renewables:nether_gold_ore"
     ]
   }
 }

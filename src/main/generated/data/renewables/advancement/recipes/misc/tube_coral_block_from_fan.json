@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:tube_coral_block_from_fan"
+        "recipe": "renewables:tube_coral_block_from_fan"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:tube_coral_block_from_fan"
+      "renewables:tube_coral_block_from_fan"
     ]
   }
 }
