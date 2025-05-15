@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "copper_ore",
+  "key": {
+    "b": "minecraft:cobbled_deepslate",
+    "c": "minecraft:copper_block",
+    "i": "minecraft:copper_ingot"
+  },
+  "pattern": [
+    "i i",
+    " b ",
+    "c c"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:deepslate_copper_ore"
+  }
+}

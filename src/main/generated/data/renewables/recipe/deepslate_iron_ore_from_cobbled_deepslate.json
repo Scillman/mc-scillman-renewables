@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "iron_ore",
+  "key": {
+    "b": "minecraft:cobbled_deepslate",
+    "i": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "i i",
+    " b ",
+    "i i"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:deepslate_iron_ore"
+  }
+}

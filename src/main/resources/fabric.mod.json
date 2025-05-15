@@ -3,7 +3,7 @@
     "id": "renewables",
     "version": "${version}",
     "name": "renewables",
-    "description": "Makes Sand renewable using the Mud and Pointed Dripstone approach.",
+    "description": "Makes certain items and blocks renewable.",
     "authors": [
         "Scillman"
     ],
@@ -15,7 +15,11 @@
     "license": "MIT",
     "icon": "assets/renewables/icon.png",
     "environment": "*",
-    "entrypoints": {},
+    "entrypoints": {
+        "fabric-datagen": [
+            "com.github.scillman.minecraft.renewables.datagen.ModDataGenerator"
+        ]
+    },
     "mixins": [
         "renewables.mixins.json"
     ],

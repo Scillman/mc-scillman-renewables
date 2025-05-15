@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "coal_ore",
+  "key": {
+    "b": "minecraft:stone",
+    "i": "minecraft:coal"
+  },
+  "pattern": [
+    "i i",
+    " b ",
+    "i i"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:coal_ore"
+  }
+}

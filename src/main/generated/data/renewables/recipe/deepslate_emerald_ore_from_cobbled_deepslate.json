@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "emerald_ore",
+  "key": {
+    "b": "minecraft:cobbled_deepslate",
+    "i": "minecraft:emerald"
+  },
+  "pattern": [
+    "i i",
+    " b ",
+    "i i"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:deepslate_emerald_ore"
+  }
+}

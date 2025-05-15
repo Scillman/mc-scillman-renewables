@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "lapis_ore",
+  "key": {
+    "b": "minecraft:stone",
+    "i": "minecraft:lapis_block"
+  },
+  "pattern": [
+    "i i",
+    " b ",
+    "i i"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:lapis_ore"
+  }
+}

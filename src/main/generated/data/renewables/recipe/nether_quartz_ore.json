@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "nether_quartz_ore",
+  "key": {
+    "b": "minecraft:netherrack",
+    "i": "minecraft:quartz"
+  },
+  "pattern": [
+    "i i",
+    " b ",
+    "i i"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:nether_quartz_ore"
+  }
+}
