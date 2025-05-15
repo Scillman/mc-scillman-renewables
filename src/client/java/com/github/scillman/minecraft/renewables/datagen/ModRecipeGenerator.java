@@ -1,5 +1,7 @@
 package com.github.scillman.minecraft.renewables.datagen;
 
+import com.google.common.collect.ImmutableList;
+
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.item.ItemConvertible;
@@ -39,6 +41,14 @@ public class ModRecipeGenerator extends RecipeGenerator
         createNetherGoldOreRecipe();
         createNetherQuartzRecipe();
         createGildedBlackstoneRecipe();
+
+        // offerSmelting( IRON_ORES,   RecipeCategory.MISC, Items.IRON_INGOT,   0.7F, 200, "iron_ingot"   );
+        // offerSmelting( COPPER_ORES, RecipeCategory.MISC, Items.COPPER_INGOT, 0.7F, 200, "copper_ingot" );
+        // offerSmelting( GOLD_ORES,   RecipeCategory.MISC, Items.GOLD_INGOT,   1.0F, 200, "gold_ingot"   );
+
+        offerSmelting(ImmutableList.of(Items.RAW_IRON_BLOCK),   RecipeCategory.MISC, Items.IRON_BLOCK,   (9 * 0.7f), (9 * 200), "iron_block");
+        offerSmelting(ImmutableList.of(Items.RAW_GOLD_BLOCK),   RecipeCategory.MISC, Items.GOLD_BLOCK,   (9 * 1.0f), (9 * 200), "gold_block");
+        offerSmelting(ImmutableList.of(Items.RAW_COPPER_BLOCK), RecipeCategory.MISC, Items.COPPER_BLOCK, (9 * 0.7f), (9 * 200), "copper_block");
     }
 
     private void createOreRecipe4_base(String group, String suffix, ItemConvertible baseItem, ItemConvertible item, ItemConvertible ore)
