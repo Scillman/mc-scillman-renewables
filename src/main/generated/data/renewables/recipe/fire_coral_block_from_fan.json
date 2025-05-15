@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "fire_coral_block",
+  "key": {
+    "i": "minecraft:fire_coral_fan"
+  },
+  "pattern": [
+    "iii",
+    "iii",
+    "iii"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:fire_coral_block"
+  }
+}

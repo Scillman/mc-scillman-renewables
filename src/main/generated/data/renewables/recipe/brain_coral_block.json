@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "brain_coral_block",
+  "key": {
+    "i": "minecraft:brain_coral"
+  },
+  "pattern": [
+    "iii",
+    "iii",
+    "iii"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:brain_coral_block"
+  }
+}
