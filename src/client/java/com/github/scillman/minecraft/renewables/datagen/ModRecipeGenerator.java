@@ -49,6 +49,12 @@ public class ModRecipeGenerator extends RecipeGenerator
         offerSmelting(ImmutableList.of(Items.RAW_IRON_BLOCK),   RecipeCategory.MISC, Items.IRON_BLOCK,   (9 * 0.7f), (9 * 200), "iron_block");
         offerSmelting(ImmutableList.of(Items.RAW_GOLD_BLOCK),   RecipeCategory.MISC, Items.GOLD_BLOCK,   (9 * 1.0f), (9 * 200), "gold_block");
         offerSmelting(ImmutableList.of(Items.RAW_COPPER_BLOCK), RecipeCategory.MISC, Items.COPPER_BLOCK, (9 * 0.7f), (9 * 200), "copper_block");
+
+        createCompactCoralBlockRecipe("tube_coral_block", Items.TUBE_CORAL_FAN, Items.TUBE_CORAL, Items.TUBE_CORAL_BLOCK);
+        createCompactCoralBlockRecipe("brain_coral_block", Items.BRAIN_CORAL_FAN, Items.BRAIN_CORAL, Items.BRAIN_CORAL_BLOCK);
+        createCompactCoralBlockRecipe("bubble_coral_block", Items.BUBBLE_CORAL_FAN, Items.BUBBLE_CORAL, Items.BUBBLE_CORAL_BLOCK);
+        createCompactCoralBlockRecipe("fire_coral_block", Items.FIRE_CORAL_FAN, Items.FIRE_CORAL, Items.FIRE_CORAL_BLOCK);
+        createCompactCoralBlockRecipe("horn_coral_block", Items.HORN_CORAL_FAN, Items.HORN_CORAL, Items.HORN_CORAL_BLOCK);
     }
 
     private void createOreRecipe4_base(String group, String suffix, ItemConvertible baseItem, ItemConvertible item, ItemConvertible ore)
@@ -149,6 +155,27 @@ public class ModRecipeGenerator extends RecipeGenerator
             .input('b', Items.BLACKSTONE)
             .group("gilded_blackstone")
             .criterion(hasItem(Items.GOLD_NUGGET), conditionsFromItem(Items.GOLD_NUGGET))
+            .offerTo(exporter);
+    }
+
+    private void createCompactCoralBlockRecipe(String group, ItemConvertible fanItem, ItemConvertible item, ItemConvertible compactItem)
+    {
+        createShaped(RecipeCategory.MISC, compactItem)
+            .pattern("iii")
+            .pattern("iii")
+            .pattern("iii")
+            .input('i', fanItem)
+            .group(group)
+            .criterion(hasItem(fanItem), conditionsFromItem(fanItem))
+            .offerTo(exporter, getItemPath(compactItem) + "_from_fan");
+
+        createShaped(RecipeCategory.MISC, compactItem)
+            .pattern("iii")
+            .pattern("iii")
+            .pattern("iii")
+            .input('i', item)
+            .group(group)
+            .criterion(hasItem(item), conditionsFromItem(item))
             .offerTo(exporter);
     }
 }

@@ -13,3 +13,8 @@
 * Smelt __Iron Block__ from a Raw Iron Block.
 * Smelt __Gold Block__ from a Raw Gold Block.
 * Smelt __Copper Block__ from a Raw Copper Block.
+* Craft __Tube Coral Block__ from Tube Coral or Tube Coral Fan.
+* Craft __Brain Coral Block__ from Brain Coral or Brain Coral Fan.
+* Craft __Bubble Coral Block__ from Bubble Coral or Bubble Coral Fan.
+* Craft __Fire Coral Block__ from Fire Coral or Fire Coral Fan.
+* Craft __Horn Coral Block__ from Horn Coral or Horn Coral Fan.
