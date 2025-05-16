@@ -74,6 +74,8 @@ public class ModRecipeGenerator extends RecipeGenerator
         createCompactCoralBlockRecipe("bubble_coral_block", Items.BUBBLE_CORAL_FAN, Items.BUBBLE_CORAL, Items.BUBBLE_CORAL_BLOCK);
         createCompactCoralBlockRecipe("fire_coral_block", Items.FIRE_CORAL_FAN, Items.FIRE_CORAL, Items.FIRE_CORAL_BLOCK);
         createCompactCoralBlockRecipe("horn_coral_block", Items.HORN_CORAL_FAN, Items.HORN_CORAL, Items.HORN_CORAL_BLOCK);
+
+        createRedSandRecipe();
     }
 
     private void createOreRecipe4_base(String group, String suffix, ItemConvertible baseItem, ItemConvertible item, ItemConvertible ore)
@@ -211,6 +213,19 @@ public class ModRecipeGenerator extends RecipeGenerator
             .group(group)
             .criterion(hasItem(item), conditionsFromItem(item))
             .offerTo(exporter, getRecipePath(compactItem));
+    }
+
+    private void createRedSandRecipe()
+    {
+        createShaped(RecipeCategory.MISC, Items.RED_SAND, 8)
+            .pattern("sss")
+            .pattern("sds")
+            .pattern("sss")
+            .input('s', Items.SAND)
+            .input('d', Items.ORANGE_DYE)
+            .group("red_sand")
+            .criterion(hasItem(Items.SAND), conditionsFromItem(Items.SAND))
+            .offerTo(exporter, getRecipePath(Items.RED_SAND));
     }
 }
 
